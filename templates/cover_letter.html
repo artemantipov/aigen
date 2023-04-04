@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Cover Letter</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<h1>AI Cover Letter</h1>
+<form action="/cover_letter" method="post">
+    <h3>Job Description:</h3>
+    <label>
+        <textarea rows="30" cols="90" name="jd" required="required" maxlength="5000" placeholder="Paste Job position description here"></textarea>
+    </label>
+    <br>
+    <h3>Additions (optional):</h3>
+    <label>
+        <textarea rows="10" cols="90" name="adds" maxlength="1000" placeholder="Your skills/things you'd like mention in cover letter"></textarea>
+    </label>
+    <br>
+    <br>
+    <input type="submit" name="submit" value="Generate" style="margin-top: 10px;" onclick="showLoading()">
+</form>
+<div class="loading" id="loading">
+    <div class="loader"></div>
+</div>
+<script>
+    function showLoading() {
+        document.getElementById("loading").style.visibility = "visible";
+    }
+</script>
+</body>
+</html>
+
+

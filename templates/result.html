@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Output</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script>
+        function copyToClipboard(element) {
+            navigator.clipboard.writeText($(element).val())
+                .then(() => {
+                    alert("Copied to Clipboard!");
+                })
+                .catch(err => {
+                    console.error("Failed to copy text: ", err);
+                });
+            return false;
+        }
+    </script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+        }
+        label {
+            text-align: center;
+            width: 100%;
+        }
+        textarea {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <h3>Your result:</h3>
+    <textarea id="textOutput" rows="30" cols="90">{{ .result }}</textarea>
+    <br><br>
+    <button onclick="return copyToClipboard('#textOutput')">Copy to Clipboard</button>
+</form>
+</body>
+</html>
